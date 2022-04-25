@@ -1,10 +1,21 @@
 import { ContractPromiseBatch, context, u128, storage } from "near-sdk-as";
 import { Student, students, Donation, donations } from "./model";
 
+function Fstart(): void {
+  assert(!storage.hasKey("electorate"), "Voted before with this contract.");
+}
+
 export function start(): void {
   Fstart();
   storage.setString("electorate", context.sender);
   storage.set("ID", 0);
+}
+
+function electorate(): void {
+  assert(
+    context.predecessor == storage.getString("electorate"),
+    "Only electorate owner use this function!"
+  );
 }
 
 export function createStudent(
@@ -36,6 +47,17 @@ export function deleteStudent(id: u32): void {
   students.delete(id);
 }
 
+function neededVoteCheck(studentq: Student): void {
+  assert(studentq.neededVote > 0, "Vote is over.");
+}
+
+function sendPocketMoney(pocketMoney: number): void {
+  assert(
+    context.attachedDeposit >= u128.from(pocketMoney),
+    "The amount must be greater than 0."
+  );
+}
+
 export function timeToVote(id: u32): void {
   let studentq = getStudentById(id);
   let pocketMoney = studentq.pocketMoney;
@@ -43,7 +65,6 @@ export function timeToVote(id: u32): void {
 
   neededVoteCheck(studentq);
   sendPocketMoney(pocketMoney);
-  voteIsOver(studentq);
 
   ContractPromiseBatch.create(sender).transfer(u128.from(pocketMoney));
   studentq.neededVoteCheck();
@@ -74,33 +95,7 @@ export function transferHistory(): Donation[] {
   return array;
 }
 
-function voteIsOver(studentq: Student): void {
-  assert(!studentq.voteOver, "Vote is over.");
-}
-
 function report(sender: string, studentq: Student): void {
   const donation = new Donation(sender, studentq);
   donations.push(donation);
-}
-
-function electorate(): void {
-  assert(
-    context.predecessor == storage.getString("electorate"),
-    "Only electorate owner use this function!"
-  );
-}
-
-function Fstart(): void {
-  assert(!storage.hasKey("electorate"), "Voted before with this contract.");
-}
-
-function neededVoteCheck(studentq: Student): void {
-  assert(studentq.neededVote > 0, "Vote is over.");
-}
-
-function sendPocketMoney(pocketMoney: number): void {
-  assert(
-    context.attachedDeposit >= u128.from(pocketMoney),
-    "The amount must be greater than 0."
-  );
 }
