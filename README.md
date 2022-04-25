@@ -1,5 +1,5 @@
 # Student-reward
-content will be added later
+Rewarding Successful Student: Start voting for students who are successful in the "Near Developer" course. Support students as they vote and help them get the computer equipment they need.
 
 1- yarn
 
