@@ -1,4 +1,5 @@
-# Student-reward
+# Student-reward ![](https://user-images.githubusercontent.com/63979453/165186783-ede288d9-eb28-43f5-aa09-449e44ff7ded.png)
+)
 Rewarding Successful Student: Start voting for students who are successful in the "Near Developer" course. Support students as they vote and help them get the computer equipment they need.
 
 1- yarn
