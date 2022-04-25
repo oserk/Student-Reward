@@ -1,5 +1,6 @@
 # ![](https://user-images.githubusercontent.com/63979453/165187423-a071dc28-8577-4eaa-907a-6e61d7284cdb.png)                                             Student-reward
 
+https://www.loom.com/share/ffb96f63e353436ba3d327bf3ef08408
 
 Rewarding Successful Student: Start voting for students who are successful in the "Near Developer" course. Support students as they vote and help them get the computer equipment they need.
 
