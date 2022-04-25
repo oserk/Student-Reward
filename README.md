@@ -1,12 +1,23 @@
-# ![](https://user-images.githubusercontent.com/63979453/165187423-a071dc28-8577-4eaa-907a-6e61d7284cdb.png)                                             Student-reward
+# ![](https://user-images.githubusercontent.com/63979453/165187423-a071dc28-8577-4eaa-907a-6e61d7284cdb.png)                                             Student-Reward
 
 https://www.loom.com/share/ffb96f63e353436ba3d327bf3ef08408
 
 Rewarding Successful Student: Start voting for students who are successful in the "Near Developer" course. Support students as they vote and help them get the computer equipment they need.
 
-1- yarn
+# Usage Steps of Smart Contract
 
-2- yarn build:release
+- First step
+```
+yarn
+```
+- Second step: Deploy to testnet account
+```
+yarn build:release
+
+near dev-deploy ./build/release/simple.wasm
+
+export CONTRACT=dev-YOUR-ID
+```
 
 3- near dev-deploy ./build/release/simple.wasm
 
