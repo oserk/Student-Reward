@@ -1,9 +1,4 @@
-import {
-  PersistentUnorderedMap,
-  PersistentVector,
-  context,
-  PersistentMap,
-} from "near-sdk-as";
+import { PersistentUnorderedMap, PersistentVector, context } from "near-sdk-as";
 import { Timestamp } from "../../utils";
 
 export const students = new PersistentUnorderedMap<u32, Student>("s");
@@ -18,7 +13,6 @@ export class Student {
   computerEquipment: string;
   pocketMoney: u32;
   neededVote: u32;
-  voteOver: bool = false;
 
   constructor(
     id: u32,
@@ -36,11 +30,6 @@ export class Student {
     this.computerEquipment = computerEquipment;
     this.pocketMoney = pocketMoney;
     this.neededVote = neededVote;
-  }
-
-  votingOver(): void {
-    this.voteOver = true;
-    students.set(this.id, this);
   }
 
   neededVoteCheck(): void {
