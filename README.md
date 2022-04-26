@@ -32,7 +32,7 @@ near call $CONTRACT createStudent '{ "name": "Your Name", "yearOfbirth": 1997, "
 ```
 near view $CONTRACT ListOfStudent '{}'
 ```
-- Vote
+- Vote and Sending Pocket Money
 ```
 near call $CONTRACT timeToVote '{ "id": EnterStudentID }' --accountId $CONTRACT --deposit EnterPocketMoneyAmount
 ```
