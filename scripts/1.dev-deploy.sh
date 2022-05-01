@@ -30,7 +30,7 @@ near dev-deploy ./build/release/simple.wasm
 echo --------------------------------------------
 echo run the following commands
 echo
-echo 'export CONTRACT=Your-Dev-ID-123-456.testnet'
+echo 'export CONTRACT=<dev-123-456>'
 echo
 echo
 

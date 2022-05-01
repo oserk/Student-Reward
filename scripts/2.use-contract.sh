@@ -10,7 +10,15 @@ echo near call \$CONTRACT start '{}' --account_id \$CONTRACT
 echo
 echo \$CONTRACT is $CONTRACT
 echo 'Create student profile'
-near call $CONTRACT createStudent '{ "name": "YourName", "yearOfbirth": yourBirthdayYear, "country": "YourCountry", "computerEquipment": "yourNeededEquipment", "pocketMoney": putNumber, "neededVote": putNumberOfNeededVote }' --accountId $CONTRACT
+echo 'Parameters are filled in as an example. The user can change it according to his request.'
+near call $CONTRACT createStudent '{ "name": "sampleName", "yearOfbirth": 1997, "country": "sampleCountry", "computerEquipment": "yourNeededEquipment", "pocketMoney": 2, "neededVote": 20 }' --accountId $CONTRACT
 echo
-echo 'Vote'
-near call $CONTRACT timeToVote '{ "id": putStudentId }' --accountId $CONTRACT --deposit $1
+echo 'Vote Student'
+echo '"PocketMoney" can be sent to the student via "--deposit"'
+echo 'The "id" parameter can be changed according to the student you want to vote for.'
+near call $CONTRACT timeToVote '{ "id": 0 }' --accountId $CONTRACT --deposit 1
+echo 'In addition, the following methods can be used.'
+echo 'near view $CONTRACT ListOfStudent '{}''
+echo 'near view $CONTRACT getStudentById '{ "id": EnterStudentID }''
+echo 'near view $CONTRACT transferHistory '{}''
+echo 'near call $CONTRACT deleteStudent '{ "id": EnterStudentID }' --accountId $CONTRACT'
